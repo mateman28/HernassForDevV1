@@ -1,0 +1,25 @@
+pipeline:
+  id: pipeline_mateman28_HernassForDevV1_build_d7f5
+  name: pipeline_mateman28_HernassForDevV1_build_d7f5
+  stages:
+    - name: Build and Test
+      id: build_and_test
+      runtime: cloud
+      platform:
+        os: linux
+        arch: amd64
+      clone:
+        enabled: true
+      cache:
+        enabled: true
+      steps:
+        - name: Verify Clone
+          id: verify_clone
+          run:
+            shell: bash
+            script: |-
+              echo "Repository cloned successfully"
+              ls -la
+              cat README.md
+  tags:
+    onboarding: "true"
